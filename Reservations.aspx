@@ -91,19 +91,16 @@
             </tr>
             <tr>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:CottagesConnectionString4 %>" 
+                ConnectionString="<%$ ConnectionStrings:Cottage6 %>" 
                 
                 SelectCommand="SELECT [Guest], [Room], [Arrival], [Departure], [CreditCardNumber], [Card] FROM [Reservations]" 
                 DeleteCommand="DELETE FROM [Reservations] WHERE [Guest] = @Guest AND [Arrival] = @Arrival" 
                 InsertCommand="INSERT INTO [Reservations] ([Guest], [Room], [Arrival], [Departure], [CreditCardNumber], [Card]) VALUES (@Guest, @Room, @Arrival, @Departure, @CreditCardNumber, @Card)" 
+                UpdateCommand="UPDATE [Reservations] SET [Room] = @Room, [Departure] = @Departure, [CreditCardNumber] = @CreditCardNumber, [Card] = @Card WHERE [Guest] = @Guest AND [Arrival] = @Arrival">
                 
-                
-                    UpdateCommand="UPDATE [Reservations] SET [Room] = @Room, [Departure] = @Departure, [CreditCardNumber] = @CreditCardNumber, [Card] = @Card WHERE [Guest] = @Guest AND [Arrival] = @Arrival">
                 <DeleteParameters>
-                    <asp:ControlParameter ControlID="txtBxName" Name="Guest" PropertyName="Text" 
-                        Type="String" />
-                    <asp:ControlParameter ControlID="CalArrival" Name="Arrival" 
-                        PropertyName="SelectedDate" Type="DateTime" />
+                    <asp:Parameter Name="Guest" Type="String" />
+                    <asp:Parameter Name="Arrival" Type="DateTime" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:ControlParameter ControlID="txtBxName" Name="Guest" PropertyName="Text" 
@@ -120,18 +117,12 @@
                         Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
-                    <asp:ControlParameter ControlID="ddRoom" Name="Room" 
-                        PropertyName="SelectedValue" Type="String" />
-                    <asp:ControlParameter ControlID="CalDeparture" Name="Departure" 
-                        PropertyName="SelectedDate" Type="DateTime" />
-                    <asp:ControlParameter ControlID="txtBxCardNumber" Name="CreditCardNumber" 
-                        PropertyName="Text" Type="String" />
-                    <asp:ControlParameter ControlID="CalExpiration" Name="Card" 
-                        PropertyName="SelectedDate" Type="String" />
-                    <asp:ControlParameter ControlID="txtBxName" Name="Guest" PropertyName="Text" 
-                        Type="String" />
-                    <asp:ControlParameter ControlID="CalArrival" Name="Arrival" 
-                        PropertyName="SelectedDate" Type="DateTime" />
+                    <asp:Parameter Name="Room" Type="String" />
+                    <asp:Parameter Name="Departure" Type="DateTime" />
+                    <asp:Parameter Name="CreditCardNumber" Type="String" />
+                    <asp:Parameter Name="Card" Type="String" />
+                    <asp:Parameter Name="Guest" Type="String" />
+                    <asp:Parameter Name="Arrival" Type="DateTime" />
                 </UpdateParameters>
             </asp:SqlDataSource>
             </tr>
